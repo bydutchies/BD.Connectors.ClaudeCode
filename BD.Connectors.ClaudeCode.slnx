@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Examples/">
+    <Project Path="BD.Connectors.ClaudeCode.Examples/BD.Connectors.ClaudeCode.Examples.csproj" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="BD.Connectors.ClaudeCode.Tests/BD.Connectors.ClaudeCode.Tests.csproj" />
+  </Folder>
+  <Project Path="BD.Connectors.ClaudeCode/BD.Connectors.ClaudeCode.csproj" />
+</Solution>

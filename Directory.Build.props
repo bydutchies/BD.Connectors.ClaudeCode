@@ -1,0 +1,40 @@
+<Project>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>14</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <DebugType>embedded</DebugType>
+
+    <!-- Code analysis settings -->
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Version>0.1.0</Version>
+    <PackageVersion>$(Version)</PackageVersion>
+  </PropertyGroup>
+
+  <!-- NuGet package metadata -->
+  <PropertyGroup>
+    <Authors>byDutchies</Authors>
+    <Company>byDutchies</Company>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/bydutchies/BD.Connectors.ClaudeCode</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(IsTestProject)' != 'true'">
+    <IsAotCompatible>true</IsAotCompatible>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true' or '$(CI)' == 'true' or '$(TF_BUILD)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+</Project>

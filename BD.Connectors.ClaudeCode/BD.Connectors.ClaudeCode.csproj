@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Description>.NET port of the Anthropic claude-agent-sdk (Python) for driving the claude CLI.</Description>
+    <PackageId>BD.Connectors.ClaudeCode</PackageId>
+    <RootNamespace>BD.Connectors.ClaudeCode</RootNamespace>
+    <AssemblyName>BD.Connectors.ClaudeCode</AssemblyName>
+    <PackageTags>claude;anthropic;sdk;ai;agent;cli</PackageTags>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <!-- Required by the source-generated LibraryImport interop stub used for the Unix SIGTERM P/Invoke (Transport/SubprocessCliTransport.cs). -->
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <EnablePackageValidation>true</EnablePackageValidation>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotNet.ReproducibleBuilds">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+</Project>

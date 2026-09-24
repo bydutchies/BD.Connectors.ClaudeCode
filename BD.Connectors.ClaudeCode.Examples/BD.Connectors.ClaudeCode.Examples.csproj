@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>BD.Connectors.ClaudeCode.Examples</RootNamespace>
+    <AssemblyName>BD.Connectors.ClaudeCode.Examples</AssemblyName>
+    <!-- Reference material, not a published package: keep out of NuGet packaging/AOT-compatibility
+         analysis (Directory.Build.props enables IsAotCompatible for every non-test project). -->
+    <IsPackable>false</IsPackable>
+    <IsAotCompatible>false</IsAotCompatible>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <!-- CA2007 (ConfigureAwait) is a library-authoring rule: an executable has no synchronization
+         context to deadlock on, and the whole point of these files is to read like the PY examples
+         they port, which never do the equivalent. -->
+    <NoWarn>$(NoWarn);CA2007</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BD.Connectors.ClaudeCode\BD.Connectors.ClaudeCode.csproj" />
+  </ItemGroup>
+</Project>

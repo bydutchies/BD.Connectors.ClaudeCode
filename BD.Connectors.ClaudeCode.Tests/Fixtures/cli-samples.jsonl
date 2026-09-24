@@ -1,0 +1,14 @@
+{"type": "system", "subtype": "init", "session_id": "s1", "model": "claude-sonnet-4-5", "cwd": ".", "tools": ["Bash", "Read"], "mcp_servers": [], "permissionMode": "default", "apiKeySource": "none"}
+{"type": "user", "message": {"role": "user", "content": [{"type": "text", "text": "Open README"}]}, "session_id": "s1", "uuid": "u1"}
+{"type": "assistant", "message": {"id": "msg-1", "model": "claude-sonnet-4-5", "role": "assistant", "content": [{"type": "text", "text": "Sure, let me look."}], "stop_reason": "end_turn", "usage": {"input_tokens": 12, "output_tokens": 8}}, "session_id": "s1", "uuid": "u2"}
+{"type": "assistant", "message": {"id": "msg-2", "model": "claude-sonnet-4-5", "role": "assistant", "content": [{"type": "tool_use", "id": "toolu_1", "name": "Read", "input": {"file_path": "README.md"}}]}, "session_id": "s1", "uuid": "u3"}
+{"type": "user", "message": {"role": "user", "content": [{"type": "tool_result", "tool_use_id": "toolu_1", "content": "file contents", "is_error": false}]}, "session_id": "s1", "uuid": "u4"}
+{"type": "system", "subtype": "task_started", "task_id": "t1", "description": "Reviewing code", "uuid": "u5", "session_id": "s1", "task_type": "local_agent"}
+{"type": "system", "subtype": "task_progress", "task_id": "t1", "description": "Reviewing code", "usage": {"total_tokens": 120, "tool_uses": 1, "duration_ms": 900}, "uuid": "u6", "session_id": "s1"}
+{"type": "system", "subtype": "task_updated", "task_id": "t1", "patch": {"status": "completed", "end_time": 1780405729183}}
+{"type": "system", "subtype": "task_notification", "task_id": "t1", "status": "completed", "output_file": "/tmp/out", "summary": "done", "uuid": "u7", "session_id": "s1"}
+{"type": "stream_event", "uuid": "u8", "session_id": "s1", "event": {"type": "content_block_delta", "delta": {"type": "text_delta", "text": "..."}}}
+{"type": "rate_limit_event", "uuid": "u9", "session_id": "s1", "rate_limit_info": {"status": "allowed_warning", "resetsAt": 1780405000, "rateLimitType": "five_hour", "utilization": 0.82}}
+{"type": "result", "subtype": "success", "duration_ms": 4200, "duration_api_ms": 3100, "is_error": false, "num_turns": 2, "session_id": "s1", "result": "Done.", "total_cost_usd": 0.0123, "usage": {"input_tokens": 40, "output_tokens": 32}, "uuid": "u10"}
+{"type": "system", "subtype": "hook_started", "hook_event": "PreToolUse", "session_id": "s1", "uuid": "u11", "tool_name": "Bash", "tool_input": {"command": "ls"}}
+{"type": "conversation_reset", "new_conversation_id": "c1", "uuid": "u12", "session_id": "s1"}
