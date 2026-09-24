@@ -186,6 +186,26 @@ public class ClaudeSdkClientTests
     }
 
     [Test]
+    public async Task ReceiveFullResponseAsync_CollectsMessagesIntoClaudeResponse()
+    {
+        var (client, transport) = await ConnectedClientAsync();
+        await using var _ = client;
+
+        transport.Emit(AssistantMessageJson("Hi there"));
+        transport.Emit(ResultMessageJson());
+        transport.Emit(AssistantMessageJson("Should not be seen"));
+
+        var response = await client.ReceiveFullResponseAsync();
+
+        await Assert.That(response.Messages.Count).IsEqualTo(2);
+        await Assert.That(response.AssistantMessages.Count).IsEqualTo(1);
+        await Assert.That(response.Text).IsEqualTo("Hi there");
+        await Assert.That(response.SessionId).IsEqualTo("session-1");
+        await Assert.That(response.Model).IsEqualTo("claude-test");
+        await Assert.That(response.IsError).IsFalse();
+    }
+
+    [Test]
     public async Task TwoQueryAsyncTurns_OnOneConnection_YieldTwoResponses()
     {
         var (client, transport) = await ConnectedClientAsync();

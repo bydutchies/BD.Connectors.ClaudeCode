@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 A .NET port of [`claude-agent-sdk-python`](https://github.com/anthropics/claude-agent-sdk-python)
-**0.2.158** for driving the `claude` CLI from C#: one-shot/streaming queries, the full interactive
+(version 0.2.159) for driving the `claude` CLI from C#: one-shot/streaming queries, the full interactive
 `ClaudeSdkClient` (permission prompts, hooks, interrupts, dynamic mode/model switches), in-process
 SDK MCP servers, and local/session-store-backed session management.
 
@@ -19,7 +19,7 @@ executable directly over its `stream-json` control protocol.
 
 - .NET 10.
 - A native `claude` CLI installed and on `PATH` (or pointed to via `ClaudeAgentOptions.CliPath`),
-  version **2.1.280 or newer** recommended (`2.0.0` minimum; `2.1.248+` if you use
+  version **2.1.281 or newer** recommended (`2.0.0` minimum; `2.1.248+` if you use
   `VerbatimPrompts`). Windows `.cmd`/`.bat` shims are rejected outright (CVE-2024-27980) — install
   the native binary via `irm https://claude.ai/install.ps1 | iex` (Windows) or
   `curl -fsSL https://claude.ai/install.sh | bash` (macOS/Linux).
@@ -223,7 +223,7 @@ reused code from (see `NOTICE.md`).
 
 ## Versioning and stability
 
-This package targets behavioral parity with `claude-agent-sdk-python` 0.2.158. It is early (`0.x`):
+This package targets behavioral parity with `claude-agent-sdk-python` 0.2.159. It is early (`0.x`):
 the public API follows the Python SDK's shape closely and is not expected to churn, but breaking
 changes may still land before `1.0.0`.
 

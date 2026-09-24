@@ -204,6 +204,20 @@ public sealed class ClaudeSdkClient(ClaudeAgentOptions? options = null, ITranspo
         }
     }
 
+    // Not part of the PY port. Convenience over ReceiveResponseAsync for callers who want a single
+    // object with readonly properties (Text, Result, ToolUses, ...) instead of iterating the
+    // message stream themselves.
+    public async Task<ClaudeResponse> ReceiveFullResponseAsync(CancellationToken cancellationToken = default)
+    {
+        var messages = new List<Message>();
+        await foreach (var message in ReceiveResponseAsync(cancellationToken).ConfigureAwait(false))
+        {
+            messages.Add(message);
+        }
+
+        return new ClaudeResponse(messages);
+    }
+
     // PY's `query`. Sends a new request in streaming mode.
     public async Task QueryAsync(string prompt, string sessionId = "default", CancellationToken cancellationToken = default)
     {

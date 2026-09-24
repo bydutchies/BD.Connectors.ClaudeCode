@@ -8,7 +8,7 @@ attribution.
 
 ## claude-agent-sdk-python
 
-Version 0.2.158, the specification this port targets (`ClaudeAgentOptions`, message/content types,
+Version 0.2.159, the specification this port targets (`ClaudeAgentOptions`, message/content types,
 the control protocol, session store semantics, `tool()`/`create_sdk_mcp_server()`, etc.).
 
 ```
