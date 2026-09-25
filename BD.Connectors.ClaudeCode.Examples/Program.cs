@@ -24,6 +24,7 @@ internal static class Program
         ["setting-sources"] = SettingSourcesExample.RunAsync,
         ["tools-option"] = ToolsOptionExample.RunAsync,
         ["plugin-example"] = PluginExample.RunAsync,
+        ["structured-output"] = StructuredOutputExample.RunAsync,
     };
 
     // Reads from Console.In and waits on the user indefinitely -- would hang the "all" batch run, so

@@ -189,9 +189,11 @@ var result = messages.OfType<ResultMessage>().Last();
 var typed = result.GetStructuredOutput(MyJsonContext.Default.MyResultType); // JsonTypeInfo<T>, AOT-safe
 ```
 
-Pass `OutputFormat = OutputFormats.JsonSchemaFor(MyJsonContext.Default.MyResultType)` (or
-`JsonSchema<T>()` for the reflection-based convenience form) on `ClaudeAgentOptions` to ask the CLI
-to constrain its output to that schema in the first place.
+Pass `OutputFormat = OutputFormats.JsonSchema(MyJsonContext.Default.MyResultType)` on
+`ClaudeAgentOptions` to ask the CLI to constrain its output to that schema in the first place
+(`JsonSchemaFor` returns only the bare schema, without the `json_schema` wrapper `OutputFormat`
+expects). The CLI delivers structured output through a tool call that uses a turn of its own, so
+leave `MaxTurns` at 2 or more.
 
 ## CLI metadata
 

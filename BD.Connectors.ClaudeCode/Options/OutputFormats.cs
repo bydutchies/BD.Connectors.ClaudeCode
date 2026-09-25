@@ -6,6 +6,8 @@ namespace BD.Connectors.ClaudeCode.Options;
 
 public static class OutputFormats
 {
+    private static readonly JsonSchemaExporterOptions _exporterOptions = new() { TreatNullObliviousAsNonNullable = true };
+
     public static JsonObject JsonSchema(JsonObject schema) => new()
     {
         ["type"] = "json_schema",
@@ -24,7 +26,9 @@ public static class OutputFormats
     {
         ArgumentNullException.ThrowIfNull(jsonTypeInfo);
 
-        var node = jsonTypeInfo.GetJsonSchemaAsNode();
+        // The CLI sends this schema as a tool input_schema, which the API rejects unless the root
+        // type is exactly "object" -- the default exporter emits ["object", "null"] for reference types.
+        var node = jsonTypeInfo.GetJsonSchemaAsNode(_exporterOptions);
         return node as JsonObject ?? throw new InvalidOperationException($"JsonSchemaExporter did not produce a JSON object schema for type '{typeof(T).FullName}'.");
     }
 }
