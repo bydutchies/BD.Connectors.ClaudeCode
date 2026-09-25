@@ -873,3 +873,4 @@ FodyWeavers.xsd
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,linux,macos,visualstudio,visualstudiocode,intellij,intellij+all,rider,angular,dotnetcore,aspnetcore,xamarinstudio
 
+/docs/plans
